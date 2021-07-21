@@ -4,11 +4,11 @@ from flask_pymongo import PyMongo
 import scrape_mars
 
 #create instance of flask
-app = Flask(__name__)
+app=Flask(__name__,template_folder='template')
 
 # mongo connection
 mongo = PyMongo(app, uri="mongodb://localhost:27017/mars_app")
-mars_data = mongo.db.mars_data
+
 
 @app.route("/")
 def index():
@@ -17,11 +17,14 @@ def index():
     mars_info = mongo.db.mars_data.find_one()
 
     # Return template and data
-    return render_template("index.html", mars_info=mars_info)
+    return render_template("index.html", mars_info = mars_info)
 
 
 @app.route("/scrape")
 def scrape():
+
+    mars_data = mongo.db.mars_data
+
     # call the scrape function
     mars_data = scrape_mars.scrape_info()
 
