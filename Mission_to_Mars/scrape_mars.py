@@ -80,7 +80,7 @@ def scrape_info():
     html_table.replace("\n", '')
 
     #Save the html table
-    mars_facts.to_html('Mars_Facts_table.html')
+    mars_facts.to_html('Mars_Facts_table_ScrapeMarsPy_function.html')
 
     #===================Mars Hemispheres========================#
     #Visit the astrogeology site (https://marshemispheres.com/)
@@ -118,9 +118,7 @@ def scrape_info():
         
         #add to dictionary
         hemisphere_image_urls.append({"title" : h_title, "img_url" : full_url})
-
-    # Close the browser after scraping
-    browser.quit()
+        
 
     mars_data = {
         "news_title": news_title,
@@ -129,6 +127,9 @@ def scrape_info():
         "mars_facts": html_table,
         "hemisphere_image_urls": hemisphere_image_urls
     }
+
+    # Close the browser after scraping
+    browser.quit()
 
     return mars_data
 
