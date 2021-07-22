@@ -63,6 +63,7 @@ def scrape_info():
 
     # Scrape page into Soup
     html = browser.html
+    facts_soup = bs(html, 'html.parser')
     
     #scrape the table containing facts about Mars
     table = pd.read_html(facts_url)
