@@ -7,7 +7,7 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Web Scraping- Mission to Mars</title>
+        <title>Web Scraping Mission to Mars</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     </head>
     <body>
@@ -15,16 +15,17 @@
       <div class="container-fluid">
         <div class="jumbotron text-center">
           <h1><b>Mission to Mars</b></h1>
-          <a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a>
+          <a class="btn btn-primary btn-lg" href="/scrape" role="button">Click to Scrape New Data</a>
+          <p>Note: Please be patient, it takes a while to reload </p>
         </div>
       </div>
     
     <!-- news section-->
-    <div class="row">
+    <div class="row" >
         <div class="col-md-12">
           <div class="media">
-            <h1 class="heading"><strong>Latest Mars News</strong>
-                <h3 class="heading">{{ mars_info.news_title }}</h4>
+            <h1 class="heading"><strong>Latest Mars News</strong></h1>
+                <h4 class="media-heading">{{ mars_info.news_title }}</h4>
                 <p>{{ mars_info.news_p }}</p>
           </div>
         </div>
@@ -34,21 +35,12 @@
     <div class="row">  
       <div class="col-md-8">
         <h3><b>Featured Mars Image</b></h3>
-        <img src="{{mars_info.featured_image_url}}"  class="img-responsive"
-        alt="Mars Images">
-        <br>   
+        <img src="{{mars_info.featured_image_url}}"  class="img-responsive" alt="Mars Images"> 
       </div>
-    </div>
-    
         <!--  Mars Facts-->
-    <div class="row">
-        <div class="col-md-12">
-            <div class="panel panel-default">
-              <div class="panel-body">
-                <h4><b>Mars Facts</b></h4>
-                <p>{{mars_info.mars_facts | safe}}</p>
-              </div>
-            </div>
+      <div class="col-md-4">
+                <h3><b>Interesting Mars Facts</b></h3>
+                <table class="table table-hover">{{mars_info.mars_facts | safe}}</table>
         </div>
     </div>       
      
